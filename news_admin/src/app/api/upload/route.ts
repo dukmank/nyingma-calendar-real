@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       || 'image.jpg'
     const fileName = `news/${Date.now()}-${safeName}`
 
-    const uploadRes = await fetch(uploadData.uploadUrl, {
+    const fetchOptions: RequestInit & { duplex?: string } = {
       method: 'POST',
       headers: {
         Authorization: uploadData.authorizationToken,
@@ -94,11 +94,10 @@ export async function POST(req: NextRequest) {
         'Content-Type': file.type || 'image/jpeg',
         'X-Bz-Content-Sha1': 'do_not_verify',
       },
-      // @ts-expect-error - Node fetch supports ArrayBuffer body
-      body: bytes,
-      // @ts-expect-error - disable duplex for Node
+      body: bytes as BodyInit,
       duplex: 'half',
-    })
+    }
+    const uploadRes = await fetch(uploadData.uploadUrl, fetchOptions)
 
     if (!uploadRes.ok) {
       const uploadErr = await uploadRes.text()
