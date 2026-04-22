@@ -1,0 +1,59 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Nyingmapa — generated/staging artifacts (not source of truth)
+b2_upload/manifest.json
+b2_upload/images/
+__pycache__/
+*.pyc
+.vercel
+
+# ── Secrets — KHÔNG commit các file này ──────────────────────────────────────
+dart_define.sh          # Flutter --dart-define keys (Supabase URL + anon key)
+.vscode/launch.json     # VS Code launch config (chứa dart-define values)
+news_admin/.env.local   # Next.js admin env (Supabase + B2 keys)
+node_modules/
+news_admin/node_modules/
